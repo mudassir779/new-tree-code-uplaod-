@@ -1,8 +1,14 @@
 [phases.setup]
+nixPkgs = ["nodejs-22", "nginx"]
 
 [phases.install]
+cmds = ["npm ci"]
 
 [phases.build]
+cmds = ["npm run build"]
 
 [start]
 cmd = "nginx -c /assets/nginx.conf"
+
+[staticAssets]
+outputDir = "dist"  # or "build" depending on your framework
